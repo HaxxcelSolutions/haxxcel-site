@@ -23,7 +23,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
   if (!industry) notFound();
 
   const currentIndex = industries.findIndex((i) => i.slug === industry.slug);
-  const nextIndustry = industries[(currentIndex + 1) % industries.length];
+  const nextIndustry = industries[(currentIndex + 1) % industries.length]!;
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-16 sm:px-8 lg:px-12">

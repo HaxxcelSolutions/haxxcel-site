@@ -501,7 +501,7 @@ export default function PortfolioPage() {
             {/* Hero image */}
             <div className="relative h-56 w-full sm:h-72">
               <Image
-                src={project.images[0]}
+                src={project.images[0]!}
                 alt={`${project.title} preview`}
                 fill
                 sizes="(min-width: 1280px) 1216px, 100vw"
