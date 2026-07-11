@@ -1,0 +1,25 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: haxxcel-solutions:latest
+    container_name: haxxcel-web
+    restart: unless-stopped
+    # Host port (left) -> container port (right).
+    # App runs on 4000 instead of 3000. Change HOST_PORT in .env if needed.
+    ports:
+      - "${HOST_PORT:-4000}:4000"
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      HOSTNAME: 0.0.0.0
+    # Load runtime secrets (Resend key, site URL, etc.) from .env.local.
+    env_file:
+      - .env.local
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4000/api"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s

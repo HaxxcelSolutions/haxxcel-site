@@ -1,0 +1,16 @@
+/* Small collection of utility classes to complement Tailwind */
+.u-hidden { display: none !important; }
+.u-visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px; overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.u-center { display: flex; align-items: center; justify-content: center; }
+.u-divider { height: 1px; background: rgba(0,0,0,0.06); margin: 1rem 0; }
+
+/* Utilities for spacing shorthand */
+.u-mt-8 { margin-top: 2rem; }
+.u-mb-8 { margin-bottom: 2rem; }
+.u-p-4 { padding: 1rem; }

@@ -1,0 +1,152 @@
+/* Basic animation utilities */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blur-reveal {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes subtle-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 420ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 480ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 480ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-scale-in {
+  animation: scale-in 420ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-blur-reveal {
+  animation: blur-reveal 600ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-text-reveal {
+  animation: text-reveal 500ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: subtle-spin 2s linear infinite;
+}
+
+.animate-stagger > * {
+  animation: fade-in-up 420ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.animate-stagger > *:nth-child(2) { animation-delay: 80ms; }
+.animate-stagger > *:nth-child(3) { animation-delay: 160ms; }
+.animate-stagger > *:nth-child(4) { animation-delay: 240ms; }
+.animate-stagger > *:nth-child(5) { animation-delay: 320ms; }
+
+.animate-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+.aurora-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.aurora-background::before,
+.aurora-background::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(75, 86, 148, 0.24), transparent 30%),
+              radial-gradient(circle at 80% 10%, rgba(114, 136, 174, 0.18), transparent 32%),
+              radial-gradient(circle at 50% 80%, rgba(234, 224, 207, 0.16), transparent 28%);
+  filter: blur(50px);
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.aurora-background::after {
+  transform: scale(1.1) translateX(5%);
+  animation-delay: 1.2s;
+}
+
+.aurora-background > * {
+  position: relative;
+  z-index: 1;
+}

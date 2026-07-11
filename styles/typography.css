@@ -1,0 +1,25 @@
+/* Typography tokens and utilities */
+:root {
+  --type-scale-0: 0.75rem; /* 12px */
+  --type-scale-1: 0.875rem; /* 14px */
+  --type-scale-2: 1rem; /* 16px */
+  --type-scale-3: 1.125rem; /* 18px */
+  --type-scale-4: 1.25rem; /* 20px */
+  --type-scale-5: 1.5rem; /* 24px */
+  --type-scale-6: 2rem; /* 32px */
+}
+
+.body-text { font-size: var(--type-scale-2); line-height: 1.6; }
+.h1 { font-size: var(--type-scale-6); font-weight: 600; line-height: 1.05; }
+.h2 { font-size: var(--type-scale-5); font-weight: 600; }
+.h3 { font-size: var(--type-scale-4); font-weight: 600; }
+.lead { font-size: var(--type-scale-3); color: var(--color-foreground); }
+.small { font-size: var(--type-scale-0); }
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  :root {
+    --type-scale-5: 1.75rem; /* 28px */
+    --type-scale-6: 2.5rem; /* 40px */
+  }
+}

@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/* ---------- Navy & Cream palette (site-wide) ----------
+   #111844 navy · #4B5694 blue-purple · #7288AE grayish blue · #EAE0CF cream
+   Remaps Tailwind color tokens so the whole site adopts the
+   palette without editing every component. */
+@theme {
+  /* Neutral text (slate family, light end) */
+  --color-slate-100: #f4efe5;
+  --color-slate-200: #e3dccb;
+  --color-slate-300: #c9c4bd;
+  --color-slate-400: #9ba3bb;
+  --color-slate-500: #7288ae;
+  --color-slate-600: #5a6493;
+
+  /* Navy backgrounds (slate family, dark end) */
+  --color-slate-700: #2b3566;
+  --color-slate-800: #1e285a;
+  --color-slate-900: #171f4d;
+  --color-slate-950: #111844;
+
+  /* Primary blue-purple accents (blue family) */
+  --color-blue-100: #dfe3f1;
+  --color-blue-200: #b6bfdf;
+  --color-blue-300: #7288ae;
+  --color-blue-400: #5c69a0;
+  --color-blue-500: #4b5694;
+  --color-blue-600: #414b84;
+  --color-blue-700: #363e6d;
+  --color-blue-800: #2b3157;
+  --color-blue-900: #202541;
+  --color-blue-950: #161a33;
+
+  /* Unify other accent families into the palette */
+  --color-sky-300: #7288ae;
+  --color-sky-400: #5c69a0;
+  --color-sky-500: #4b5694;
+  --color-sky-600: #414b84;
+  --color-cyan-300: #7288ae;
+  --color-cyan-400: #5c69a0;
+  --color-cyan-500: #4b5694;
+  --color-cyan-600: #414b84;
+  --color-indigo-300: #7288ae;
+  --color-indigo-400: #5c69a0;
+  --color-indigo-500: #4b5694;
+  --color-indigo-600: #414b84;
+  --color-violet-300: #7288ae;
+  --color-violet-400: #5c69a0;
+  --color-violet-500: #4b5694;
+  --color-violet-600: #414b84;
+  --color-fuchsia-300: #7288ae;
+  --color-fuchsia-400: #5c69a0;
+  --color-fuchsia-500: #4b5694;
+  --color-fuchsia-600: #414b84;
+  --color-purple-300: #7288ae;
+  --color-purple-500: #4b5694;
+  --color-purple-600: #414b84;
+  --color-emerald-300: #7288ae;
+  --color-emerald-400: #5c69a0;
+  --color-emerald-500: #4b5694;
+  --color-emerald-600: #414b84;
+  --color-teal-300: #7288ae;
+  --color-teal-400: #5c69a0;
+  --color-teal-500: #4b5694;
+  --color-teal-600: #414b84;
+  --color-green-400: #5c69a0;
+  --color-green-500: #4b5694;
+  --color-lime-300: #7288ae;
+  --color-lime-500: #4b5694;
+  --color-lime-600: #414b84;
+  --color-amber-300: #7288ae;
+  --color-amber-400: #5c69a0;
+  --color-amber-500: #4b5694;
+  --color-amber-600: #414b84;
+  --color-orange-500: #4b5694;
+  --color-orange-600: #414b84;
+  --color-rose-300: #7288ae;
+  --color-rose-400: #5c69a0;
+  --color-rose-500: #4b5694;
+  --color-rose-600: #414b84;
+  --color-red-500: #4b5694;
+  --color-red-600: #414b84;
+  --color-yellow-400: #7288ae;
+}
+
+:root {
+  --background: #f5f1e8;
+  --foreground: #171f4d;
+  --primary: #4b5694;
+  --secondary: #eae0cf;
+  --card: #fdfbf6;
+  --border: #ddd3c0;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: #111844;
+  --foreground: #eae0cf;
+  --primary: #7288ae;
+  --secondary: #171f4d;
+  --card: #1a2352;
+  --border: rgba(234, 224, 207, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(75, 86, 148, 0.4);
+  color: #eae0cf;
+}
+
+/* ---------- Premium animations ---------- */
+
+/* Marquee */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.marquee-track {
+  animation: marquee-scroll linear infinite;
+}
+.group:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Floating elements */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-y 9s ease-in-out infinite;
+}
+
+/* Hover cards */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.hover-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -20px rgba(75, 86, 148, 0.35);
+  border-color: rgba(114, 136, 174, 0.4);
+}
+
+/* ---------- Cream content cards (maintenance-page look) ----------
+   Navy page background + cream cards with navy text.
+   .card-cream    = solid cream surface
+   .card-cream-soft = subtle nested surface on cream */
+.card-cream {
+  background: #eae0cf;
+  border: 1px solid rgba(75, 86, 148, 0.18);
+  color: #3d4675;
+}
+.card-cream-soft {
+  background: rgba(17, 24, 68, 0.05);
+  border: 1px solid rgba(75, 86, 148, 0.15);
+  color: #3d4675;
+}
+.card-cream :where(h1, h2, h3, h4, h5, h6, summary),
+.card-cream-soft :where(h1, h2, h3, h4, h5, h6, summary) {
+  color: #111844;
+}
+.card-cream :where(p, li, dd, dt, label, figcaption, footer, blockquote, cite, td, th),
+.card-cream-soft :where(p, li, dd, dt, label, figcaption, footer, blockquote, cite, td, th) {
+  color: #3d4675;
+}
+
+/* Timeline draw-in */
+@keyframes timeline-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .animate-float,
+  .animate-float-slow {
+    animation: none !important;
+  }
+}
