@@ -87,6 +87,7 @@ const megaMenu: MenuItem[] = [
       {
         heading: "Learn",
         links: [
+          { title: "Blog", href: "/blog", description: "Insights & articles" },
           { title: "Case Studies", href: "/case-studies", description: "Proven results" },
           { title: "FAQ", href: "/faq", description: "Common questions" },
         ],

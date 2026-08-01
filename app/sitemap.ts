@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/process",
     "/portfolio",
     "/case-studies",
+    "/blog",
     "/faq",
     "/contact",
     "/privacy-policy",
