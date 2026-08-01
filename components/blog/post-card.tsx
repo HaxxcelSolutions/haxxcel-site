@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { urlForImage } from "@/lib/sanity/client";
+import { hasImageAsset, urlForImage } from "@/lib/sanity/client";
 import type { PostCard } from "@/lib/sanity/fetch";
 
 function formatDate(date: string | null | undefined) {
@@ -14,7 +14,7 @@ function formatDate(date: string | null | undefined) {
 }
 
 export function PostCard({ post, priority = false }: { post: PostCard; priority?: boolean }) {
-  const coverUrl = post.cover ? urlForImage(post.cover as never).width(1200).url() : null;
+  const coverUrl = hasImageAsset(post.cover) ? urlForImage(post.cover as never).width(1200).url() : null;
   const date = formatDate(post.publishedAt);
   const category = post.categories?.[0];
 

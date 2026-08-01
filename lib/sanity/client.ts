@@ -17,6 +17,12 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client);
 
+export function hasImageAsset(source: unknown): boolean {
+  if (!source || typeof source !== "object") return false;
+  const candidate = source as { asset?: unknown };
+  return Boolean(candidate.asset);
+}
+
 export function urlForImage(source: SanityImageSource) {
   return builder.image(source);
 }

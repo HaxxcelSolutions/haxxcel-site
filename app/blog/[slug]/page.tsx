@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { urlForImage } from "@/lib/sanity/client";
+import { hasImageAsset, urlForImage } from "@/lib/sanity/client";
 import { getAllPostSlugs, getPost } from "@/lib/sanity/fetch";
 
 import { BlogBody } from "@/components/blog/portable-text";
@@ -31,7 +31,7 @@ export async function generateMetadata({
       title: post.seoTitle ?? post.title,
       description: post.seoDescription ?? post.excerpt ?? undefined,
       publishedTime: post.publishedAt ?? undefined,
-      images: post.cover
+      images: hasImageAsset(post.cover)
         ? [{ url: urlForImage(post.cover as never).width(1200).url() }]
         : undefined,
     },
@@ -52,8 +52,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = await getPost(slug);
   if (!post) notFound();
 
-  const coverUrl = post.cover ? urlForImage(post.cover as never).width(1600).url() : null;
-  const authorImageUrl = post.authorImage
+  const coverUrl = hasImageAsset(post.cover) ? urlForImage(post.cover as never).width(1600).url() : null;
+  const authorImageUrl = hasImageAsset(post.authorImage)
     ? urlForImage(post.authorImage as never).width(96).url()
     : null;
 
