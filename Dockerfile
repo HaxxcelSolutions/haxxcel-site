@@ -14,13 +14,16 @@ WORKDIR /app
 # ---- Dependencies -----------------------------------------------------------
 FROM base AS deps
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 # ---- Build ------------------------------------------------------------------
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+# The Oracle VM only has ~1GB RAM, so give the build worker a bigger heap
+# (backed by swap) instead of dying on the default ~512MB limit.
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 RUN npm run build
 
 # ---- Runtime ----------------------------------------------------------------
