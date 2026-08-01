@@ -2,8 +2,11 @@ import { MetadataRoute } from "next";
 
 import { SITE_URL } from "@/lib/constants";
 import { aiServices } from "@/content/ai-services";
+import { getAllPostSlugs } from "@/lib/sanity/fetch";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 60;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
 
   const staticRoutes = [
@@ -37,5 +40,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...aiServiceRoutes];
+  const blogSlugs = await getAllPostSlugs();
+  const blogRoutes = blogSlugs.map((slug) => ({
+    url: `${SITE_URL}/blog/${slug}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...aiServiceRoutes, ...blogRoutes];
 }
