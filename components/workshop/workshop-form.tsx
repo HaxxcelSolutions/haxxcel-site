@@ -17,10 +17,12 @@ const industries = [
 ];
 
 const inputClasses =
-  "w-full rounded-xl border-[1.5px] border-[#e4e1db] bg-[#faf9f7] px-4 py-3 text-[0.95rem] text-[#1a1e2c] outline-none transition placeholder:text-[#a8a9b3] focus:border-[#1a1e2c] focus:bg-white focus:ring-4 focus:ring-[#1a1e2c]/10";
+  "w-full rounded-2xl border border-[#4b5694]/25 bg-[#111844]/[0.04] px-4 py-3 text-[0.95rem] text-[#111844] outline-none transition placeholder:text-[#7288ae] focus:border-blue-500/60";
 
-const labelClasses =
-  "mb-[5px] block text-[0.8rem] font-semibold uppercase tracking-[0.02em] text-[#3d3f4b]";
+const labelClasses = "mb-2 block text-sm font-semibold text-[#3d4675]";
+
+const selectArrow =
+  "appearance-none bg-[right_16px_center] bg-no-repeat pr-11 [background-image:url(\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='12'%20height='8'%20viewBox='0%200%2012%208'%3E%3Cpath%20d='M1%201l5%205%205-5'%20stroke='%233d4675'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/%3E%3C/svg%3E\")]";
 
 export default function WorkshopForm() {
   const [status, setStatus] = useState<{ msg: string; error: boolean } | null>(null);
@@ -31,7 +33,9 @@ export default function WorkshopForm() {
     const form = e.currentTarget;
     setStatus(null);
 
-    const fields = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>("[required]"));
+    const fields = Array.from(
+      form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>("[required]"),
+    );
     for (const field of fields) {
       if (!field.value.trim()) {
         field.focus();
@@ -70,8 +74,8 @@ export default function WorkshopForm() {
   }
 
   return (
-    <form id="workshopForm" onSubmit={handleSubmit} noValidate>
-      <div className="form-group">
+    <form onSubmit={handleSubmit} noValidate className="space-y-4">
+      <div>
         <label htmlFor="fullName" className={labelClasses}>
           Full Name <span className="text-[#c0392b]">*</span>
         </label>
@@ -87,7 +91,7 @@ export default function WorkshopForm() {
         />
       </div>
 
-      <div className="form-group">
+      <div>
         <label htmlFor="workEmail" className={labelClasses}>
           Work Email <span className="text-[#c0392b]">*</span>
         </label>
@@ -103,7 +107,7 @@ export default function WorkshopForm() {
         />
       </div>
 
-      <div className="form-group">
+      <div>
         <label htmlFor="currentRole" className={labelClasses}>
           Current Role / Title <span className="text-[#c0392b]">*</span>
         </label>
@@ -119,7 +123,7 @@ export default function WorkshopForm() {
         />
       </div>
 
-      <div className="form-group">
+      <div>
         <label htmlFor="companyName" className={labelClasses}>
           Company Name <span className="text-[#c0392b]">*</span>
         </label>
@@ -135,7 +139,7 @@ export default function WorkshopForm() {
         />
       </div>
 
-      <div className="mb-[18px] grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="companySize" className={labelClasses}>
             Company Size <span className="text-[#c0392b]">*</span>
@@ -144,7 +148,7 @@ export default function WorkshopForm() {
             id="companySize"
             name="companySize"
             required
-            className={`${inputClasses} cursor-pointer appearance-none bg-[right_16px_center] bg-no-repeat pr-11 [background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='12'%20height='8'%20viewBox='0%200%2012%208'%3E%3Cpath%20d='M1%201l5%205%205-5'%20stroke='%233d3f4b'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/%3E%3C/svg%3E")]`}
+            className={`${inputClasses} cursor-pointer ${selectArrow}`}
             onChange={clearStatus}
           >
             <option value="">Select size</option>
@@ -164,7 +168,7 @@ export default function WorkshopForm() {
             id="industry"
             name="industry"
             required
-            className={`${inputClasses} cursor-pointer appearance-none bg-[right_16px_center] bg-no-repeat pr-11 [background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='12'%20height='8'%20viewBox='0%200%2012%208'%3E%3Cpath%20d='M1%201l5%205%205-5'%20stroke='%233d3f4b'%20stroke-width='1.5'%20fill='none'%20stroke-linecap='round'/%3E%3C/svg%3E")]`}
+            className={`${inputClasses} cursor-pointer ${selectArrow}`}
             onChange={clearStatus}
           >
             <option value="">Select industry</option>
@@ -177,7 +181,7 @@ export default function WorkshopForm() {
         </div>
       </div>
 
-      <div className="form-group">
+      <div>
         <label htmlFor="bottleneck" className={labelClasses}>
           Biggest operational bottleneck right now <span className="text-[#c0392b]">*</span>
         </label>
@@ -195,12 +199,12 @@ export default function WorkshopForm() {
       <button
         type="submit"
         disabled={loading}
-        className="mt-2 w-full cursor-pointer rounded-[14px] bg-[#1a1e2c] px-6 py-4 text-base font-semibold tracking-[0.01em] text-white transition hover:-translate-y-px hover:bg-[#2d3346] hover:shadow-[0_8px_24px_rgba(26,30,44,0.15)] active:scale-[0.98] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
+        className="mt-2 w-full cursor-pointer rounded-full bg-[#111844] px-6 py-4 text-sm font-semibold text-[#eae0cf] transition hover:bg-[#1e285a] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? (
           <span className="inline-flex items-center gap-2">
             <span
-              className="inline-block h-[18px] w-[18px] animate-spin rounded-full border-[2.5px] border-white/25 border-t-white"
+              className="inline-block h-[18px] w-[18px] animate-spin rounded-full border-[2.5px] border-[#eae0cf]/25 border-t-[#eae0cf]"
               aria-hidden="true"
             />
             Submitting…
@@ -210,7 +214,7 @@ export default function WorkshopForm() {
         )}
       </button>
 
-      <div className="mt-[18px] flex flex-wrap items-center justify-between gap-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 pt-1">
         <p
           role="status"
           aria-live="polite"
@@ -222,7 +226,7 @@ export default function WorkshopForm() {
         >
           {status?.msg ?? ""}
         </p>
-        <span className="text-xs text-[#8a8d9a]">🔒 No spam · 1-click unsubscribe</span>
+        <span className="text-xs text-[#7288ae]">🔒 No spam · 1-click unsubscribe</span>
       </div>
     </form>
   );
