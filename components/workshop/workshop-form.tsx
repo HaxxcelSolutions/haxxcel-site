@@ -210,7 +210,7 @@ export default function WorkshopForm() {
             Submitting…
           </span>
         ) : (
-          "Reserve My Seat + Get Free Audit"
+          "Reserve my seat"
         )}
       </button>
 
