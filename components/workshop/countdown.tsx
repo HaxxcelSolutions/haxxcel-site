@@ -22,9 +22,10 @@ const units = [
 ];
 
 export default function Countdown() {
-  const [parts, setParts] = useState(() => getParts(Date.now()));
+  const [parts, setParts] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
+    setParts(getParts(Date.now()));
     const id = setInterval(() => setParts(getParts(Date.now())), 1000);
     return () => clearInterval(id);
   }, []);
