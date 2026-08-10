@@ -61,7 +61,7 @@ export default function WorkshopPage() {
           className="absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-blue-500/15 blur-[120px]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pt-20 pb-24 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:px-12 lg:pt-24 lg:pb-28">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pt-16 pb-20 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:px-12 lg:pt-24 lg:pb-28">
           {/* Copy + CTA */}
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/40 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-blue-200 uppercase">
@@ -80,24 +80,24 @@ export default function WorkshopPage() {
               virtual, and free.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <a
                 href="#register"
-                className="inline-flex items-center gap-2 rounded-full bg-[#eae0cf] px-8 py-4 text-sm font-semibold text-[#111844] transition hover:bg-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#eae0cf] px-8 py-4 text-sm font-semibold text-[#111844] transition hover:bg-white"
               >
                 Reserve my seat
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#learn"
-                className="inline-flex rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-slate-200 transition hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-slate-200 transition hover:bg-white/5"
               >
                 What you&apos;ll learn
               </a>
             </div>
 
             {/* event meta pills */}
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:mt-9 sm:gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
                 <CalendarDays className="h-4 w-4 text-blue-300" />
                 Mon, 24 Aug 2026
@@ -115,11 +115,11 @@ export default function WorkshopPage() {
 
           {/* Event card */}
           <Reveal>
-            <div className="rounded-3xl card-cream p-8 sm:p-10">
+            <div className="rounded-3xl card-cream p-6 sm:p-10">
               <p className="text-xs font-semibold tracking-[0.22em] text-[#4b5694] uppercase">
                 Live workshop
               </p>
-              <h2 className="mt-3 text-2xl font-semibold text-[#111844]">Saves starts in</h2>
+              <h2 className="mt-3 text-xl font-semibold text-[#111844] sm:text-2xl">Saves starts in</h2>
 
               <div className="mt-6">
                 <Countdown />
@@ -169,17 +169,17 @@ export default function WorkshopPage() {
       </section>
 
       {/* ── WHAT YOU'LL WALK AWAY WITH ─────────────────────── */}
-      <section id="learn" className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-24">
+      <section id="learn" className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
         <Reveal>
-          <h2 className="max-w-xl text-3xl font-semibold text-white sm:text-4xl">
+          <h2 className="max-w-xl text-2xl font-semibold text-white sm:text-4xl">
             Walk away with an automation plan, not just notes.
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-6">
           {takeaways.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.06}>
-              <div className="h-full rounded-3xl card-cream p-7">
+              <div className="h-full rounded-3xl card-cream p-6 sm:p-7">
                 <span className="grid h-11 w-11 place-items-center rounded-2xl bg-[#111844] text-[#eae0cf]">
                   <item.icon className="h-5 w-5" />
                 </span>
@@ -192,10 +192,10 @@ export default function WorkshopPage() {
       </section>
 
       {/* ── PRESENTER ───────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 pb-20 sm:px-8 lg:px-12 lg:pb-24">
+      <section className="mx-auto max-w-7xl px-6 pb-16 sm:px-8 lg:px-12 lg:pb-24">
         <Reveal>
-          <div className="rounded-3xl card-cream p-8 sm:p-10">
-            <div className="grid gap-8 sm:items-start lg:grid-cols-[auto_1fr]">
+          <div className="rounded-3xl card-cream p-6 sm:p-10">
+            <div className="grid gap-6 sm:items-start lg:grid-cols-[auto_1fr] lg:gap-8">
               <div className="grid h-16 w-16 place-items-center rounded-2xl bg-[#111844] text-xl font-semibold text-[#eae0cf]">
                 HX
               </div>
@@ -219,14 +219,14 @@ export default function WorkshopPage() {
 
       {/* ── REGISTER ────────────────────────────────────────── */}
       <section id="register" className="border-t border-white/5">
-        <div className="mx-auto max-w-3xl px-6 py-20 sm:px-8 lg:py-24">
+        <div className="mx-auto max-w-3xl px-6 py-16 sm:px-8 lg:py-24">
           <Reveal>
             <div className="text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/40 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-blue-200 uppercase">
                 <BadgeCheck className="h-3.5 w-3.5" />
                 Free workflow audit included
               </span>
-              <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl">Reserve your seat</h2>
+              <h2 className="mt-6 text-2xl font-semibold text-white sm:text-4xl">Reserve your seat</h2>
               <p className="mx-auto mt-4 max-w-xl text-slate-300">
                 Join the live masterclass and claim your free workflow audit. Limited seats — reserve
                 yours before they fill up.
@@ -235,7 +235,7 @@ export default function WorkshopPage() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-10 rounded-3xl card-cream p-8 sm:p-10">
+            <div className="mt-10 rounded-3xl card-cream p-6 sm:p-10">
               <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold text-[#111844]">Registration</h3>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#111844]/[0.06] px-3 py-1 text-xs font-semibold text-[#4b5694]">

@@ -31,19 +31,19 @@ export default function Countdown() {
   }, []);
 
   return (
-    <div className="flex items-center gap-2.5 sm:gap-3">
+    <div className="flex items-center gap-2 sm:gap-3">
       {units.map((unit, i) => (
-        <div key={unit.label} className="flex items-center gap-2.5 sm:gap-3">
+        <div key={unit.label} className="flex items-center gap-2 sm:gap-3">
           <div className="flex flex-col items-center">
-            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[#111844] text-xl font-semibold tabular-nums text-[#eae0cf] sm:h-16 sm:w-16">
+            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#111844] text-lg font-semibold tabular-nums text-[#eae0cf] sm:h-16 sm:w-16 sm:text-xl">
               {String(parts[unit.key]).padStart(2, "0")}
             </span>
-            <span className="mt-1.5 text-[0.62rem] font-semibold tracking-[0.14em] text-[#4b5694] uppercase">
+            <span className="mt-1.5 text-[0.6rem] font-semibold tracking-[0.14em] text-[#4b5694] uppercase sm:text-[0.62rem]">
               {unit.label}
             </span>
           </div>
           {i < units.length - 1 ? (
-            <span className="text-xl font-semibold text-[#7288ae]">:</span>
+            <span className="text-lg font-semibold text-[#7288ae] sm:text-xl">:</span>
           ) : null}
         </div>
       ))}

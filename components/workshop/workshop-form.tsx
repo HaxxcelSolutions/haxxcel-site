@@ -214,7 +214,7 @@ export default function WorkshopForm() {
         )}
       </button>
 
-      <div className="flex flex-wrap items-center justify-between gap-2.5 pt-1">
+      <div className="flex flex-wrap items-center gap-2.5 pt-1">
         <p
           role="status"
           aria-live="polite"
@@ -226,7 +226,6 @@ export default function WorkshopForm() {
         >
           {status?.msg ?? ""}
         </p>
-        <span className="text-xs text-[#7288ae]">🔒 No spam · 1-click unsubscribe</span>
       </div>
     </form>
   );
