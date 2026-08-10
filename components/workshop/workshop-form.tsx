@@ -182,16 +182,16 @@ export default function WorkshopForm() {
       </div>
 
       <div>
-        <label htmlFor="bottleneck" className={labelClasses}>
-          Biggest operational bottleneck right now <span className="text-[#c0392b]">*</span>
+        <label htmlFor="website" className={labelClasses}>
+          Company website <span className="text-[#7288ae]">(optional)</span>
         </label>
-        <textarea
-          id="bottleneck"
-          name="bottleneck"
-          rows={3}
-          placeholder="Describe your biggest ops pain point…"
-          required
-          className={`${inputClasses} min-h-[80px] resize-y`}
+        <input
+          type="url"
+          id="website"
+          name="website"
+          placeholder="https://company.com"
+          autoComplete="url"
+          className={inputClasses}
           onInput={clearStatus}
         />
       </div>

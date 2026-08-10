@@ -92,7 +92,7 @@ export default function WorkshopPage() {
                 href="#learn"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-slate-200 transition hover:bg-white/5"
               >
-                What you&apos;ll learn
+                What&apos;s inside
               </a>
             </div>
 
