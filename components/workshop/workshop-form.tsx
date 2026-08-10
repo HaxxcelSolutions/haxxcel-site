@@ -183,7 +183,7 @@ export default function WorkshopForm() {
 
       <div>
         <label htmlFor="website" className={labelClasses}>
-          Company website <span className="text-[#7288ae]">(optional)</span>
+          Company website
         </label>
         <input
           type="url"
