@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbx_ydxn3GwfidjhFCNMgPFV76v3UyllVckrJNofh5377wR9M6NOPavK2G5j1PNJdzRE/exec";
+  "https://script.google.com/macros/s/AKfycbx7KTW9FU_aN1HnsDFhQSLz_-362VPkaXYursqwygduMxBJwCYmXYdftoHQrJTPILUb/exec";
 
 const companySizes = ["1-10", "11-50", "51-200", "200+"];
 const industries = [
